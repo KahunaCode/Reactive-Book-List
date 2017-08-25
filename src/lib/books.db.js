@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 const booksFromFakeDB = [{
     _id : 1,
     title : 'Talion: The Revenant from DB',
