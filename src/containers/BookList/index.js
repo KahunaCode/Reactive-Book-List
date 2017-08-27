@@ -16,7 +16,7 @@ class BookList extends Component {
         {
           this.props.books
             .filter(book => {
-              return this.props.filter ? book.author.toLowerCase().indexOf(this.props.filter) > -1 || book.title.toLowerCase().indexOf(this.props.filter) > -1 : book;
+              return this.props.filter ? book.author.toLowerCase().indexOf(this.props.filter.toLowerCase()) > -1 || book.title.toLowerCase().indexOf(this.props.filter.toLowerCase()) > -1 : book;
             })
             .map(book =>{
             //console.log(book.title)
