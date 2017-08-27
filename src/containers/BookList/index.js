@@ -6,7 +6,6 @@ import Book from '../../components/Book'
 class BookList extends Component {
   constructor(props) {
     super()
-
   }
 
   render(){
@@ -26,7 +25,6 @@ class BookList extends Component {
                   author={book.author}
                   key={book._id}
                 />
-
               //moved to Book.js
               // <li>
               //   <h3>{book.title}</h3>
@@ -34,7 +32,6 @@ class BookList extends Component {
               // </li>
               )
           })
-
         }
       </ul>
     );

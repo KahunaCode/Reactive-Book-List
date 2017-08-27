@@ -6,6 +6,7 @@ import {getBooksFromFakeXHR,addBookToFakeXHR} from './lib/books.db';
 import BookListAppTitle from './components/BookListAppTitle';
 import BookList from './containers/BookList/';
 import BookFilterInput from './components/BookFilterInput';
+import NewBook from './containers/NewBookForm';
 
 console.log(BookListAppTitle);
 
@@ -45,8 +46,19 @@ class App extends Component {
     });
   }
 
+  addBookHandler(book){
+    console.log('handling my books')
+    addBookToFakeXHR(book)
+      .then((books) =>{
+        this.setState({books});
+      })
+      .catch((err)=>{
+        console.log(err);
+      });
+  }
 
   render() {
+    console.log('apps this.state', this.state)
     return (
       <div>
         <BookListAppTitle
@@ -55,6 +67,10 @@ class App extends Component {
 
         <BookFilterInput
           filterInputChange={this.handleFilterInputChange.bind(this)}
+        />
+
+        <NewBook
+          addBookHandler={this.addBookHandler.bind(this)}
         />
 
         <BookList

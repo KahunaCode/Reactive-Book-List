@@ -7,28 +7,28 @@ class NewBook extends Component{
     super(props);
 
     this.setState({
-      bookTitle: '',
-      bookAuthor: ''
+      title: '',
+      author: ''
     });
   }
 
   TitleChangeHandler(e){
     this.setState({
-      bookTitle: e.target.value
+      title: e.target.value
     });
   }
 
   AuthorChangeHandler(e){
     this.setState({
-      bookAuthor: e.target.value
+      author: e.target.value
     });
   }
 
   SubmitButtonHandler(e){
     console.log(e)
     let newBook = {
-      bookTitle: this.state.bookTitle,
-      bookAuthor: this.state.bookAuthor
+      title: this.state.title,
+      author: this.state.author
     };
     console.log('my new book', newBook)
     this.props.addBookHandler(newBook);
