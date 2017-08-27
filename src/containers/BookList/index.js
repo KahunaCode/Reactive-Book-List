@@ -1,6 +1,7 @@
 /* jshint esversion: 6 */
 
 import React, { Component } from 'react';
+import Book from '../../components/Book'
 
 class BookList extends Component {
   constructor(props) {
@@ -9,17 +10,28 @@ class BookList extends Component {
   }
 
   render(){
-    console.log('render method', this.props);
+    console.log('render method', this.props.filter);
     return (
       <ul>
         {
-          this.props.books.map(book =>{
+          this.props.books
+            .filter(book => {
+              return this.props.filter ? book.author.toLowerCase().indexOf(this.props.filter) > -1 || book.title.toLowerCase().indexOf(this.props.filter) > -1 : book;
+            })
+            .map(book =>{
             //console.log(book.title)
-            return(
-              <li>
-                <h3>{book.title}</h3>
-                <p>{book.author}</p>
-              </li>
+              return(
+                <Book
+                  title={book.title}
+                  author={book.author}
+                  key={book._id}
+                />
+
+              //moved to Book.js
+              // <li>
+              //   <h3>{book.title}</h3>
+              //   <p>{book.author}</p>
+              // </li>
               )
           })
 
