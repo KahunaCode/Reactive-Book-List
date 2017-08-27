@@ -25,17 +25,17 @@ class NewBook extends Component{
   }
 
   SubmitButtonHandler(e){
-    console.log(e)
+    // console.log(e)
     let newBook = {
       title: this.state.title,
       author: this.state.author
     };
-    console.log('my new book', newBook)
+    //console.log('my new book', newBook)
     this.props.addBookHandler(newBook);
   }
 
   render(){
-    console.log("current state", this.state);
+    // console.log("current state", this.state);
     return(
         <div className="book-form">
           <p>Add a new book</p>
@@ -50,12 +50,10 @@ class NewBook extends Component{
           onChange={this.AuthorChangeHandler.bind(this)}
           />
           <button onClick={this.SubmitButtonHandler.bind(this)}>Submit</button>
-
         </div>
       )
+    }
   }
-
-}
 
 
 export default NewBook;

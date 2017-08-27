@@ -12,8 +12,7 @@ const BookFilterInput = ({filterInputChange}) =>{
       <input id="book-filter" type="text" onChange={filterInputChange}/>
 
     </div>
-
-    )
+  )
 }
 
 export default BookFilterInput;

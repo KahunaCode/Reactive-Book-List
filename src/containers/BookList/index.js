@@ -9,7 +9,7 @@ class BookList extends Component {
   }
 
   render(){
-    console.log('render method', this.props.filter);
+    //console.log('render method', this.props.filter);
     return (
       <ul>
         {

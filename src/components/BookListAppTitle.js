@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 
 import React from 'react';
-import Book from './Book';
+//import Book from './Book';
 
 const BookListAppTitle = (props) =>{
   console.log(props);

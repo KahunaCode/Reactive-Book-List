@@ -8,7 +8,7 @@ import BookList from './containers/BookList/';
 import BookFilterInput from './components/BookFilterInput';
 import NewBook from './containers/NewBookForm';
 
-console.log(BookListAppTitle);
+//console.log(BookListAppTitle);
 
 class App extends Component {
 
@@ -36,9 +36,8 @@ class App extends Component {
   //   });
   }
 
-  componentDidMount() {
-
-  }
+  // componentDidMount() {
+  // }
 
   handleFilterInputChange(e){
     this.setState({
@@ -47,7 +46,7 @@ class App extends Component {
   }
 
   addBookHandler(book){
-    console.log('handling my books')
+    //console.log('handling my books')
     addBookToFakeXHR(book)
       .then((books) =>{
         this.setState({books});
@@ -58,7 +57,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('apps this.state', this.state)
+    //console.log('apps this.state', this.state)
     return (
       <div>
         <BookListAppTitle
@@ -81,7 +80,5 @@ class App extends Component {
     );
   }
 }
-
-
 
 export default App;
