@@ -11,6 +11,7 @@ export const loadBooks = (books) => {
 };
 
 export const addBook = (book) => {
+  console.log('ACTIONS ADD_BOOK', book);
   return {
     type: ADD_BOOK,
     book: book

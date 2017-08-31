@@ -72,7 +72,7 @@ class App extends Component {
         />
 
         <NewBook
-          addBookHandler={this.addBookHandler.bind(this)}
+          // addBookHandler={this.addBookHandler.bind(this)}
         />
 
         <BookList

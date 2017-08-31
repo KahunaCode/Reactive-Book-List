@@ -1,6 +1,8 @@
 /* jshint esversion: 6 */
 
 import React, {Component} from 'react';
+import { addBook } from '../../actions';
+import { connect } from 'react-redux';
 
 class NewBook extends Component{
   constructor(props) {
@@ -11,6 +13,11 @@ class NewBook extends Component{
       author: ''
     };
   }
+
+  componentDidMount() {
+    console.log('newbook container', this.props);
+  }
+
 
   TitleChangeHandler(e){
     this.setState({
@@ -30,8 +37,11 @@ class NewBook extends Component{
       title: this.state.title,
       author: this.state.author
     };
-    //console.log('my new book', newBook)
-    this.props.addBookHandler(newBook);
+    //previously from App Container via props
+    //this.props.addBookHandler(newBook);
+
+    //running dispatch method from connect redux store
+    this.props.addBook(newBook);
   }
 
   render(){
@@ -55,5 +65,17 @@ class NewBook extends Component{
     }
   }
 
+const mapDispatchToProps = (dispatch) =>{
+  return {
+    addBook: (book) =>{
+      dispatch(addBook(book))
+    }
+  }
+}
 
-export default NewBook;
+const ConnectedNewBookForm = connect(
+  null,
+  mapDispatchToProps
+)(NewBook);
+
+export default ConnectedNewBookForm;

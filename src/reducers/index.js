@@ -13,6 +13,10 @@ const books = (state = initialState, action) => {
       break;
 
     case ADD_BOOK:
+      console.log('REDUCDERS ADD_BOOK', action.book);
+      return {
+        books: [...state.books, action.book]
+      }
       break;
 
     default:
