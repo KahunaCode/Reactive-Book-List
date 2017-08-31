@@ -1,8 +1,10 @@
 /* jshint esversion: 6 */
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import {getBooksFromFakeXHR,addBookToFakeXHR} from './lib/books.db';
+import { loadBooks, addBooks } from './actions';
 import BookListAppTitle from './components/BookListAppTitle';
 import BookList from './containers/BookList/';
 import BookFilterInput from './components/BookFilterInput';
@@ -20,10 +22,11 @@ class App extends Component {
 
     getBooksFromFakeXHR()
       .then((books) =>{
+        this.props.loadBooks(books);
         //console.log(books);
-        this.setState({
-          books: books
-        });
+        // this.setState({
+        //   books: books
+        // });
       }).catch((err)=>{
         console.log(err);
       });
@@ -74,11 +77,30 @@ class App extends Component {
 
         <BookList
           filter={this.state.bookFilterText}
-          books={this.state.books}
+          books={this.props.books}
         />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    books: state.books
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return {
+    loadBooks: (books) => {
+      dispatch(loadBooks(books));
+    }
+  }
+}
+
+const ConnectedApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
+
+export default ConnectedApp;

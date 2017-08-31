@@ -6,10 +6,10 @@ class NewBook extends Component{
   constructor(props) {
     super(props);
 
-    this.setState({
+    this.state = {
       title: '',
       author: ''
-    });
+    };
   }
 
   TitleChangeHandler(e){
